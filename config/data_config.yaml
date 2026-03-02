@@ -1,0 +1,24 @@
+dataset_name: lending_club
+
+# Columns used to define label + time split
+status_column: loan_status
+date_column: issue_d
+
+# Binary target definition
+target_column: default_flag
+
+# Map loan_status → default_flag
+positive_statuses:
+  - Charged Off
+  - Default
+  - Late (31-120 days)
+
+negative_statuses:
+  - Fully Paid
+
+# Rows to exclude because outcome is not finalized / ambiguous
+drop_statuses:
+  - Current
+  - Issued
+  - In Grace Period
+  - Late (16-30 days)
